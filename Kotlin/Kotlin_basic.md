@@ -104,9 +104,31 @@ else ->
 
 
 
+<h3>Class</h3>
+
+`````ko
+class Person(var name:String){
+
+}
+
+
+//class 정의할때 기본적으로 생성자를 넣어줄수있다.
+
+//public과 같은 접근제한자를 쓸필요 X. 디폴트가 public.
+
+//생성시 new 키워드 안씀.
+
+//java에서 field라고 부르는 것들을 kotlin에선 property라고 부름
+
+//init{}이라는 코드가 존재. 생성자가 호출된 이후에 실행되는 코드 블록.
 
 
 
+person.name = "김길동" 
+
+
+//직접 접근하는 것처럼 생겼지만 내부적으로는 getName을 호출한다.
+`````
 
 
 
