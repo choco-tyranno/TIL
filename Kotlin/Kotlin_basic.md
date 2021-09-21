@@ -85,17 +85,11 @@ for(i in numbers){println(i)}
 when(x){
 
 1-> print("1입니다")
-
 2-> print("2입니다")
-
 3, 4, 5 -> print("3,4,5중 하나입니다")
-
 in 6..20->print("6부터 20사이의 값입니다")
-
 !in 8..10 ->
-
 else ->
-
 }
 
 
@@ -108,27 +102,43 @@ else ->
 
 `````ko
 class Person(var name:String){
-
 }
 
 
 //class 정의할때 기본적으로 생성자를 넣어줄수있다.
-
 //public과 같은 접근제한자를 쓸필요 X. 디폴트가 public.
-
 //생성시 new 키워드 안씀.
-
 //java에서 field라고 부르는 것들을 kotlin에선 property라고 부름
-
 //init{}이라는 코드가 존재. 생성자가 호출된 이후에 실행되는 코드 블록.
-
+//함수도 public이 기본이고 명시하지 않는다. private으로 사용할 경우에만 명시한다.
+//java에서의 @Override 어노테이션이 kotlin에선 override 키워드로 사용됨.
 
 
 person.name = "김길동" 
-
 
 //직접 접근하는 것처럼 생겼지만 내부적으로는 getName을 호출한다.
 `````
 
 
+
+<h3>data class</h3>
+
+`````ko
+data class Person(val name:String, var age :Int)
+
+
+//data class는 toString/getter & setter/equals & hashCode를 재정의 한 것으로 본다.
+`````
+
+
+
+<h3> Inheritance , Interface</h3>
+
+`````ko
+class MainActivity : AppCompatActivity(), View.OnClickListener{}
+
+
+//상속받는 클래스의 어떤 생성자가 호출되는지까지 표기되어있다.
+//한편, 인터페이스는()를 안붙인다.
+`````
 
