@@ -66,9 +66,45 @@ val str = if(x%2==0) "zero" else "left"
 
 
 
+<h3>for syntax : </h3>
+
+`````ko
+for(i in 0..9){println(i)}
+
+val numbers = listOf{1,2,3}
+
+for(i in numbers){println(i)}
+
+`````
 
 
- 
+
+<h3>when syntax(alternative to java switch syntax) : </h3>
+
+`````ko
+when(x){
+
+1-> print("1입니다")
+
+2-> print("2입니다")
+
+3, 4, 5 -> print("3,4,5중 하나입니다")
+
+in 6..20->print("6부터 20사이의 값입니다")
+
+!in 8..10 ->
+
+else ->
+
+}
+
+
+//when syntax도 식이기 때문에 값을 리턴한다면 대입이 가능(e.g. val result = when(){}).
+`````
+
+
+
+
 
 
 
