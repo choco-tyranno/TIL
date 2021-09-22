@@ -4,6 +4,17 @@
 
 
 
+<h3>Add dependency</h3>
+
+`````ko
+// ViewModel
+implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+`````
+
+
+
+
+
 <h3>Get liveData</h3>
 
 `````ko
