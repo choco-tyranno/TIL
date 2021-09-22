@@ -159,3 +159,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{}
 
 
 
+<h3>확장함수</h3>
+
+`````ko
+fun String.myLength() : Int {return this.length}
+
+//Kotlin에선 String이라는 final 클래스에도 상속없이 함수를 추가할 수 있다.
+
+`````
+
+
+
+<h3>자바와 코틀린의 혼용</h3>
+
+상호 호환이 가능. 단, 몇가지 주의점이 있다.
+
+
+
