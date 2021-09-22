@@ -1,5 +1,7 @@
 # :rocket:Kotlin
 
+
+
 ### variable & constant syntax : 
 
 `````ko
@@ -9,6 +11,19 @@ val c : Int = 3
 
 // {line:3}처럼 타입을 선언해줄수 있지만, Kotlin은 타입 자동추론시스템이 적용되어있으므로 선호되지 않는 방식.
 // 변수(var)에 의한 에러 가능성을 낮추기 위해 변수를 최소화 한다. 상수(val)를 주로 사용하자.
+`````
+
+
+
+<h3> Data type</h3>
+
+`````ko
+val str1 :String? = null     //가능
+val str2 :String = null		//불가능
+
+//kotlin에선 error를 피하기 위해 기본적으로 변수에 null이 들어갈 수 없다.
+//Type 뒤에 ?가 붙은 타입만이 null이 가능한 타입. 이를 사용하기 위해선 null check가 필요.
+
 `````
 
 
@@ -141,4 +156,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{}
 //상속받는 클래스의 어떤 생성자가 호출되는지까지 표기되어있다.
 //한편, 인터페이스는()를 안붙인다.
 `````
+
+
 
