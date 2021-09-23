@@ -93,3 +93,16 @@ val db = Room.databaseBuilder(
 
 `````
 
+
+
+<h3>Coroutine</h3>
+
+`````ko
+dependencies {
+    implementation("androidx.room:room-ktx:2.3.0")
+}
+
+//Room 확장 프로그램은 데이터베이스 트랜잭션을 위한 코루틴 지원을 추가한다.
+//위 dependency를 추가하지 않으면 Dao에 suspend 키워드를 사용할 수 없다. 에러남. 
+`````
+
