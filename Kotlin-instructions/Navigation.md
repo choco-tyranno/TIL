@@ -92,3 +92,70 @@ class MainActivity .. {
 //import 타겟 주소가 여러개인 경우가 있어 주의.
 `````
 
+
+
+
+
+<h2>Pass data between destinations</h2>
+
++ Open 'nav_graph.xml'.
++ Click receiving destination and add arguments(enter name/type).
+
+(Do 'Build > rebuild' for well reflecting.)
+
+<h3>1. Ensure type-safety by using Safe Args</h3>
+
+`````ko
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        val nav_version = "2.3.5"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+    }
+}
+
+
+//top level build.gradle
+`````
+
+`````ko
+plugins {
+    id("androidx.navigation.safeargs")
+}
+
+
+//module's build.gradle
+`````
+
+<h3>2. Posting destination</h3>
+
+`````ko
+
+class MainFragment : Fragment() {
+  ...
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button.setOnClickListener {
+            val action = MainFragmentDirections
+            .actionMainFragmentToSecondFragment("Hi")
+            findNavController().navigate(action)
+        }
+    }
+}
+`````
+
+<h3>3. Receiving destination</h3>
+
+`````ko
+
+class SecondFragment : Fragment() {
+    val args : SecondFragmentArgs by navArgs()
+...
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        textView.text = args.text
+    }
+}
+`````
