@@ -23,16 +23,13 @@ implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
 
 ````k
 //1.
-val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
-
+	val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 //Additional dependency(lifecycle extention) needed.
 //-> implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
 //2
-val viewModel : MainViewModel by viewModels()
-
-//Additional dependency(activity-ktx) needed.
+	val viewModel : MainViewModel by viewModels()
+//Additional dependency(activity-ktx or fragment-ktx) needed.
 //-> implementation("androidx.activity:activity-ktx:$activity_version")
 //Check source compatibility & target compatibility (1.8 or over).
 //File > Project structure > Modules에서 설정가능.
