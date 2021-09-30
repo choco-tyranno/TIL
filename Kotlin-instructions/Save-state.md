@@ -41,6 +41,8 @@ class MainViewModel(private val handle : SavedStateHandle) : ViewModel(){
 			handle.set("count", value)
 			//setter를 override하면서 동시에 수행될 코드들 삽입.
 		}
+    val countLiveData : MutableLiveData<Int> = MutableLiveData<Int>()
+    ...
 }
 
 //ViewModel의 경우 생성자 인자로 (private val handle : SavedStateHandle)만 널어주기만 하면 된다.
