@@ -48,7 +48,10 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
 dependencies {
 	implementation("androidx.fragment:fragment-ktx:1.3.6")
 }
+
 `````
+
+<h3> 2-1. Implicit way 
 
 `````ko
 class FirstFragment : Fragment(R.layout.fragment_first) {
@@ -88,6 +91,56 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
     }
 }
 
+// 암시적 Intent.
 // recieve destination fragment에선 setFragmentResultListener()를 통해 데이터를 받는다.
 `````
 
+<h3> 2-2. Explicit way</h3>
+
+``````ko
+class FirstFragment : Fragment(R.layout.fragment_first) {
+    val getStartActivityForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){activityResult ->
+        activityResult?.data?.let { intent->
+            intent.extras?.let { bundle ->
+                Toast.makeText(
+                    requireContext(),
+                    "result:${bundle.getString("data","No data")}"
+                    , Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val firstButton = view.findViewById<Button>(R.id.first_button)
+
+        firstButton.setOnClickListener {
+            Intent(requireContext(), ResultActivity::class.java).apply {
+                getStartActivityForResult.launch(this)
+            }
+        }
+    }
+}
+
+// 명시적 Intent.
+// 어떤 숫자를 정의해놓고 무엇이 호출되었는가에 따라 처리를 해주는 암시적방식과 달리,
+// 관심사가 분리되는 형태로 명시적으로 처리를 정의하고 또 그것을 실행하는 식으로 나타남. 
+``````
+
+`````ko
+class ResultActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_result)
+        findViewById<Button>(R.id.result_button).setOnClickListener {
+            val intent = Intent()
+            intent.putExtra("data","Hello")
+            setResult(RESULT_OK,intent)
+            finish()
+        }
+    }
+}
+`````
