@@ -7,6 +7,11 @@
 <h3>Build environment</h3>
 
 `````ko
+plugins {
+...
+    id 'kotlin-kapt'
+}
+
 android {
     ...
     buildFeatures {
