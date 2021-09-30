@@ -1,4 +1,4 @@
-<h1>Pass data between fragments</h1>
+<h1>Pass data with fragment</h1>
 
 
 
@@ -140,6 +140,30 @@ class ResultActivity : AppCompatActivity() {
             intent.putExtra("data","Hello")
             setResult(RESULT_OK,intent)
             finish()
+        }
+    }
+}
+`````
+
+
+
+<h1>Grant permission using FragmentResult API</h1>
+
+`````ko
+
+class FirstFragment : Fragment(R.layout.fragment_first) {
+    val requestPermission = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ){ granted ->
+        if(granted) Toast.makeText(requireContext(),"권한 승인",Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val firstButton = view.findViewById<Button>(R.id.first_button)
+
+        firstButton.setOnClickListener {
+            requestPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
         }
     }
 }
