@@ -54,3 +54,105 @@ class MainActivity : AppCompatActivity(){
 //주입 객체를 사용하는 곳. 
 `````
 
+
+
+
+
+<h3> 1. Adding dependencies</h3>
+
+`````ko
+buildscript {
+    ...
+    dependencies {
+        ...
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+    }
+}
+
+//in root build.gradle file.
+`````
+
+`````ko
+plugins {
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
+}
+
+android {
+    ...
+}
+
+dependencies {
+    implementation("com.google.dagger:hilt-android:2.38.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+}
+
+// Allow references to generated code
+kapt {
+ correctErrorTypes true
+}
+
+//in app/build.gradle file.
+`````
+
+<h2>Steps</h2>
+
+<h3>Make App.class</h3>
+
+`````ko
+@HiltAndroidApp
+class ExampleApplication : Application() { ... }
+`````
+
+`````ko
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.choco_tyranno.studyhilt">
+
+    <application
+        android:name=".App"
+        
+        ...
+//add name property (android:name=".App") in manifests file.
+`````
+
+
+
+<h3>Inject dependencies into Android classes</h3>
+
+`````ko
+@AndroidEntryPoint
+class ExampleActivity : AppCompatActivity() { ... }
+	@Inject lateinit var repository : MyRepository
+	
+//add (@AndroidEntryPoint) annotation in receive side Android class.
+//define supported Object variable by lateinit var with (@Inject) annotation.
+`````
+
+
+
+<h3>Component scopes</h3>
+
+| Android class                                 | Generated component         | Scope                     |
+| :-------------------------------------------- | :-------------------------- | :------------------------ |
+| `Application`                                 | `SingletonComponent`        | `@Singleton`              |
+| `Activity`                                    | `ActivityRetainedComponent` | `@ActivityRetainedScoped` |
+| `ViewModel`                                   | `ViewModelComponent`        | `@ViewModelScoped`        |
+| `Activity`                                    | `ActivityComponent`         | `@ActivityScoped`         |
+| `Fragment`                                    | `FragmentComponent`         | `@FragmentScoped`         |
+| `View`                                        | `ViewComponent`             | `@ViewScoped`             |
+| `View` annotated with `@WithFragmentBindings` | `ViewWithFragmentComponent` | `@ViewScoped`             |
+| `Service`                                     | `ServiceComponent`          | `@ServiceScoped`          |
+
+`````ko
+@Singleton
+class MyRepository @Inject constructor(){
+
+}
+`````
+
+
+
+
+
+<h3> 
