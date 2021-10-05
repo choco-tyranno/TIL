@@ -153,6 +153,60 @@ class MyRepository @Inject constructor(){
 
 
 
+<h2>Hilt module</h2>
+
+>Hilt support object creation management by module.
+>
+>Hilt module is a class that is annotated with (@Module).
+>
+>It informs Hilt how to provide instance of certain types(Like Dagger).
+>
+>Annotate with (@InstallIn) in Hilt modules to tell Hilt which Android class each module will be used or installed in(Unlike Dagger).
+
+`````ko
+@Module
+@InstallIn(SingletonComponent::class)
+object ApplicationModule {
+
+    @Provides
+    fun provideHash() = hashCode().toString()
+
+}
+`````
+
+<h3>Generated components for Android classes</h3>
+
+| Hilt component              | Injector for                                  |
+| :-------------------------- | :-------------------------------------------- |
+| `SingletonComponent`        | `Application`                                 |
+| `ActivityRetainedComponent` | N/A                                           |
+| `ViewModelComponent`        | `ViewModel`                                   |
+| `ActivityComponent`         | `Activity`                                    |
+| `FragmentComponent`         | `Fragment`                                    |
+| `ViewComponent`             | `View`                                        |
+| `ViewWithFragmentComponent` | `View` annotated with `@WithFragmentBindings` |
+| `ServiceComponent`          | `Service`                                     |
+
+<h3>Inject dependencies into Android classes</h3>
+
+`````ko
+
+@AndroidEntryPoint
+class MainFragment : Fragment(R.layout.fragment_main) {
+...
+
+    @Inject
+    lateinit var applicationHash : String
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("MainFragment", "appHash: $applicationHash")
+...
+    }
+}
+`````
 
 
-<h3> 
+
+
+
