@@ -256,3 +256,23 @@ annotation class AppHash
 //(@Qualifier) for Hilt.
 `````
 
+
+
+
+
+<h3> Inject ViewModel objects with Hilt</h3>
+
+`````ko
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repository: MyRepository
+) : ViewModel(){
+    fun getRepositoryHash() = repository.hashCode().toString()
+}
+`````
+
+`````ko
+@Singleton
+class MyRepository @Inject constructor()
+`````
+
