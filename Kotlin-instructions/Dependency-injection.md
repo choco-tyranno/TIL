@@ -210,3 +210,49 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
 
 
+<h3> Provide type & Qualifier</h3>
+
+`````ko
+@Module
+@InstallIn(SingletonComponent::class)
+object ApplicationModule {
+    @Provides
+    fun provideHash() = hashCode().toString()
+
+    @Provides
+    fun provideTestString() = "test"
+
+}
+
+//Same type providing occur the below error.
+//error: [Dagger/DuplicateBindings] java.lang.String is bound multiple times:
+`````
+
+<h3>Make Qualifier</h3>
+
+`````ko
+@Module
+@InstallIn(SingletonComponent::class)
+object ApplicationModule {
+    @AppHash
+    @Provides
+    fun provideHash() = hashCode().toString()
+    
+    @TestString
+    @Provides
+    fun provideTestString() = "test"
+}
+
+//Make qualifier and provide it.
+//Write custom annotation (e.g. @AppHash) and (alt+enter) for create annotation AppHash class file.
+`````
+
+`````ko
+@Retention(AnnotationRetention.RUNTIME)
+@Qualifier
+annotation class AppHash
+
+//Attach (@Retention, @Qualifier) annotation.
+//(@Qualifier) for Hilt.
+`````
+
