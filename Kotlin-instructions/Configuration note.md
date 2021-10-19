@@ -23,7 +23,15 @@ android{
 
 
 
-<h3>Kotlin JVM target</h3>
+## Change Gradle JDK
+
+> Move to 'Settings > Build, Execution, Deployment > Build Tools > Gradle' tap
+>
+> And then change Gragle JDK to purpose version.
+
+
+
+## Kotlin JVM target
 
 > Go : file > settings > Other settings > Kotlin compiler.
 >
