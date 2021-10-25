@@ -17,9 +17,59 @@
 
 
 
+## 1. Observer / Listener
+
+> The observer pattern is used to allow an object to publish changes to its state. Other objects subscribe to be immediately notified of any changes.
+
+### Example
+
+`````ko
+interface TextChangedListener {
+	fun onTextChanged(oldText:String, newText: String)
+}
+
+class PrintingTextChangedListener : TextChangedListener {
+	private var text = ""
+	
+	override fun onTextChanged(oldText:String, newText: String) {
+		text = "Text is changed: $oldText -> $newText"
+	}
+}
+
+class TextView {
+	val listeners = mutableListOf<TextChangedListener>()
+	var text = String by Delegates.observable("<empty>") { _, old, new ->
+		listeners.forEach {it.onTextChanged(old, new) }
+	}
+}
+
+`````
+
+### Usage
+
+`````ko
+val textView = TextView().apply{
+	listener = PrintingTextChangedListener()
+}
+
+with(textView) {
+	text = "Lorem ipsum"
+	text = "dolor sit amet"
+]
+`````
+
+### Output
+
+`````ko
+Text is changed <empty> -> Lorem ipsum
+Text is changed Lorem ipsum -> dolor sit amet
+`````
 
 
-## Strategy
+
+
+
+## 2. Strategy
 
 > The strategy pattern is used to create an interchangeable family of algorithms from which the required process is chosen at run-time.
 
