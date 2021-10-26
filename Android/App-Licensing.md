@@ -45,3 +45,16 @@ class MainActivity : AppCompatActivity(){
 }
 `````
 
+
+
+## + Internal workings
+
+> getDependencies()
+>
+> https://github.com/google/play-services-plugins/blob/master/oss-licenses-plugin/src/main/groovy/com/google/android/gms/oss/licenses/plugin/DependencyTask.groovy
+>
+>
+> generateLicenses()
+>
+> https://github.com/google/play-services-plugins/blob/master/oss-licenses-plugin/src/main/groovy/com/google/android/gms/oss/licenses/plugin/LicensesTask.groovy
+
