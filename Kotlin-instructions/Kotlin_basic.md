@@ -194,3 +194,11 @@ fun String.myLength() : Int {return this.length}
 
 
 
+### Casting
+
+`````ko
+val textView : TextView = view as TextView
+
+//Use <as> expression.
+`````
+
