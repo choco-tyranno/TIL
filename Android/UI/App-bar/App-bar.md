@@ -194,5 +194,12 @@ override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
 
 
 
+## Case: Fragment navigation hierarch
 
-
+> Consider to handle it:
+>
+> + navigateUp()
+>
+> or
+>
+> + popBackStack()
