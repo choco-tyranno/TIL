@@ -152,3 +152,18 @@ Preview : Focus on the arrow to the left.
 //Declare '<meta-data>' element to support Android 4.0 and lower. 
 `````
 
+
+
+### 2. Enable the Up Button
+
+`````kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_my_child)
+    setSupportActionBar(findViewById(R.id.my_child_toolbar))
+    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+}
+
+//call the app bar's setDisplayHomeAsUpEnabled() method to enable the up button.
+`````
+
