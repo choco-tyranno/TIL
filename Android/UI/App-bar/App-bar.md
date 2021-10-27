@@ -104,9 +104,51 @@ Preview :
 
 ## Use app bar utility methods
 
-`````ko
+`````kotlin
 val appBar = appcompatActivity.supportActionBar()
 
 //getSupportActionBar() method returns a reference of an ActionBar object.
+`````
+
+
+
+
+
+## Add an up action
+
+Preview : Focus on the arrow to the left.
+
+<img src="https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack/img/fbdc1793f9fea6da.png?hl=fa">
+
+
+
+### 1. Declare a parent activity
+
+`````kotlin
+<application ... >
+    ...
+
+    <!-- The main/home activity (it has no parent activity) -->
+
+    <activity
+        android:name="com.example.myfirstapp.MainActivity" ...>
+        ...
+    </activity>
+
+    <!-- A child of the main activity -->
+    <activity
+        android:name="com.example.myfirstapp.MyChildActivity"
+        android:label="@string/title_activity_child"
+        android:parentActivityName="com.example.myfirstapp.MainActivity" >
+
+        <!-- Parent activity meta-data to support 4.0 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.myfirstapp.MainActivity" />
+    </activity>
+</application>
+
+//Set attribute 'parentActivityName' for to navigate target activity.
+//Declare '<meta-data>' element to support Android 4.0 and lower. 
 `````
 
