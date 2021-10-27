@@ -99,3 +99,14 @@ Preview :
    //pass the activity's toolbar.
    //It makes accessable with a reference to and appcompat ActionBar object.
    ```
+
+
+
+## Use app bar utility methods
+
+`````ko
+val appBar = appcompatActivity.supportActionBar()
+
+//getSupportActionBar() method returns a reference of an ActionBar object.
+`````
+
