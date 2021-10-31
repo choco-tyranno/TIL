@@ -168,3 +168,66 @@ Paying for order with id: 2
 Paying for order with id: 1
 `````
 
+
+
+## 4. State
+
+## Example
+
+`````kotlin
+sealed class AuthorizationState
+
+object Unauthorized : AuthorizationState()
+
+class Authorized(val userName: String) : AuthorizationState()
+
+class AuthorizationPresenter{
+    private var state: AuthorizationState = Unauthorized
+    
+    val isAuthorized: Boolean
+    	get() = when (state) {
+            is Authorized -> true
+            is UnAuthorized -> false
+        }
+    
+    val userName: String
+    	get() {
+            val state = this.state //val enables smart casting of state
+            return when (state)  {
+                is Authorized -> state.userName
+                is Unauthorized -> "Unknown"
+            }
+        }
+    fun loginUser(userName: String) {
+        state = Authorized(userName)
+    }
+    
+    fun logoutUser() {
+        state = Unauthorized
+    }
+    
+    override fun toString() = "User '$userName' is logged in: $isAuthorized"
+}
+`````
+
+### Usage
+
+`````kotlin
+val authoirizationPresenter = AuthorizationPresenter()
+
+authorizationPresenter.loginUser("admin")
+println(authorizationPresenter)
+
+authorizationPresenter.logoutUser()
+println(authorizationPresenter)
+`````
+
+### Output
+
+`````markdown
+User 'admin' is logged in: true
+User 'Unknown' is logged in: false
+`````
+
+
+
