@@ -6,13 +6,19 @@
 > + Granularity
 > + Preset Sizes
 
-> ​	:warning: "wrap_content" for layout_width or layout_height attribute is not recommended.
+> ​	:warning: CAUTION : 
+>
+> 1. "wrap_content" for layout_width or layout_height attribute is not recommended.
 >
 > ​	It may produce unexpected results.
+>
+> 2. <code>android:autoSizeTextType=""</code> is 'TextView' attribute not EditText.
+>
+> 
 
 
 
-## Default
+## 1. Default
 
 > The default dimensions for uniform scaling are 
 > minTextSize = 12sp, 
@@ -39,7 +45,7 @@ TextViewCompat.setAutoSizeTextTypeWithDefaults(TextView textview, int autoSizeTe
 
 
 
-## Granularity
+## 2. Granularity
 
 > It defining a range of minimum and maximum text sizes 
 > and a dimension that specifies the size of each step.
@@ -65,9 +71,7 @@ setAutoSizeTextTypeUniformWithConfiguration(int autoSizeMinTextSize, int autoSiz
 
 
 
-
-
-## Preset Sizes
+## 3. Preset Sizes
 
 > Specifying all the values.
 
