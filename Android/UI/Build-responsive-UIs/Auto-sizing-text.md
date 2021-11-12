@@ -108,3 +108,26 @@ setAutoSizeTextTypeUniformWithConfiguration(int autoSizeMinTextSize, int autoSiz
 setAutoSizeTextTypeUniformWithPresetSizes(int[] presetSizes, int unit)
 `````
 
+
+
+
+
+## Synchronize EditText with TextView auto sized
+
+> Set attribute (e.g. 'android:autoSizeTextType="uniform"') to TextView(TextView title).
+>
+> Call EditText(EditText editor).setTextSize in titles callback ViewTreeObserver.OnGlobalLayoutListener.
+
+`````java
+title.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                //Calling EditText.setText in lifecycle mothod (e.g. Activity.onCreate or onResume) may be produce setting unexpected size.
+                int textSizePx = (int) title.getTextSize();
+                editor.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizePx)
+            }
+        });
+`````
+
+
+
