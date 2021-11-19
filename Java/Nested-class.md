@@ -7,6 +7,17 @@
 
 
 
+## Diff between 'Non-static member class' and 'Static member class'
+
+> val N : 'Non-static member class'
+> val S : 'Static member class'
+>
+> + N can access to reference of outer class. But S is not.
+>   -> It means N cannot be exist without outer class. However S is not.
+> + Creating N instance is depends on outer class instance.
+
+
+
 ## See: Static members
 
 > Static members are those which belongs to the class and you can access these members without instantiating the class.
