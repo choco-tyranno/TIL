@@ -202,3 +202,18 @@ val textView : TextView = view as TextView
 //Use <as> expression.
 `````
 
+
+
+
+
+=====================================================
+
+### Compile
+
+> Kotlin언어로 IntelliJ IDEA를 사용해 프로젝트 생성시,
+>
+> Java / JavaScript / C 어떤 언어 기반의 프로젝트이냐에 따라
+>
+> compile시 결과물이 달라짐.
+
+ 
