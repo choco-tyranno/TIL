@@ -15,5 +15,5 @@
 
 + Major : Big changes with entire design or functions.
 + Miner : Function changed or added.
-+ Build or Maintenance : Fixed minor bugs or minor code redactored.  
++ Build or Maintenance : Fixed minor bugs or minor code refactored.  
 
