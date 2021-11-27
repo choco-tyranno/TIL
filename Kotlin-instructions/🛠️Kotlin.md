@@ -27,6 +27,10 @@
 > + Android
 > + JavaScript - 'Web field using JavaScript, ECMAScript' & 'node.js developing field'
 > + Native - iOS, Mac, watchOS, tvOS, Android Native, Windows, Linux ... etc
+> + Data science - data analysis, machine learning, deep learning developing field
+> + ETC ..
+
+
 
 
 
