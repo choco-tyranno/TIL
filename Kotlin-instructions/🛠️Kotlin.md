@@ -21,6 +21,15 @@
 
 
 
+## Work field
+
+> + Server side - Spring Framework 5 or over
+> + Android
+> + JavaScript - 'Web field using JavaScript, ECMAScript' & 'node.js developing field'
+> + Native - iOS, Mac, watchOS, tvOS, Android Native, Windows, Linux ... etc
+
+
+
 
 
 
