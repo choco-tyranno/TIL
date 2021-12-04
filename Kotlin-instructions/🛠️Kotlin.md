@@ -52,10 +52,27 @@ class TestClass2(val a1: Int, val a2:Int){
 
 ## Access modifier
 
-`````kotlin
-//클래스에 정의한 모든 변수는 접근제한자를 생략하면 기본으로 private가 설정된다(자바는 기본 public인 것과 상반됨).
-//
-`````
+> ### Class :
+>
+> private : 외부에서 객체 생성 불가.
+>
+> public(기본) : 외부에서 객체를 생성할 수 있다.
+>
+> ~~protected~~
+>
+> internal : 같은 모듈인 경우에만 객체를 생성할 수 있다.
+
+> ### variable, method :
+>
+> private : 외부에서 접근 불가.
+>
+> public(기본) : 외부에서 접근이 자유로움. 변수의 경우 getter와 setter 자동 생성됨.
+>
+> protected : 상속관계에서만 접근 가능.
+>
+> internal : 같은 모듈인 경우에만 접근 가능.
+
+
 
 
 
