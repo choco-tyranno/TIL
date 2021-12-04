@@ -30,13 +30,14 @@
 > + Data science - data analysis, machine learning, deep learning developing field
 > + ETC ..
 
+
+
 ## Constructor
 
 `````kotlin
 class TestClass constructor(val a1 :Int,var a2 :Int)
 
-// 주생성자에서는 constructor 키워드 생략가능.
-//생성자 파라미터의 변수 또는 상수는 field화 되어 setter 및 getter가 자동생성됨.
+//주생성자에서는 constructor 키워드 생략가능.
 //바디가 필요없으면 바디블록도 생략가능.
 //바디 안에 constructor 키워드를 달아 보조생성자를 만들 수 있으나, 주생성자가 있다면 주생설자를 호출해줘야함.
 
@@ -49,7 +50,12 @@ class TestClass2(val a1: Int, val a2:Int){
 
 
 
+## Access modifier
 
+`````kotlin
+//클래스에 정의한 모든 변수는 접근제한자를 생략하면 기본으로 private가 설정된다(자바는 기본 public인 것과 상반됨).
+//
+`````
 
 
 
