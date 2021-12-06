@@ -5,7 +5,7 @@ Local :
 `````markdown
 //git checkout otherBranch
 
-git branch -d localBranchName
+$git branch -d localBranchName
 `````
 
 
@@ -13,6 +13,6 @@ git branch -d localBranchName
 Remote :
 
 `````markdown
-git push origin --delete remoteBranchName
+$git push origin --delete remoteBranchName
 `````
 
