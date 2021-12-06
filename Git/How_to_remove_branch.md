@@ -3,6 +3,8 @@
 Local : 
 
 `````markdown
+//git checkout otherBranch
+
 git branch -d localBranchName
 `````
 
