@@ -74,6 +74,53 @@ class TestClass2(val a1: Int, val a2:Int){
 
 
 
+## LateInit
+
+> var로 선언된 변수의 초기화를 뒤로 미룰 수 있다.
+>
+> 변수의 값을 사용하기 전에 반드시 초기화가 이뤄져야 한다.
+> ->'UninitializedPropertyAccessException' 발생.
+>
+> val로 선언된 변수는 오류가 발생한다.
+
+> 프로퍼티의 값을 나중에 셋팅할 때에는 지연초기화를 사용한다.
+>
+> var 변수는 lateinit을 사용.
+>
+> val 변수는 lazy 코드블록 사용.
+
+`````kotlin
+class LateInitTest {
+    var a1 : Int
+    lateinit var a2 : String //'lateinit' modifier is not allowed on properties of primitive types.
+    init{
+        a1 = 100
+    }
+}
+`````
+
+`````kotlin
+//리플렉션을 이용한 초기화 체크 방법
+fun testMethod(){
+    if(::a2.isInitialized == false){
+        a2 = "테스트"
+    }
+    println("a2 : $a2")
+}
+`````
+
+`````kotlin
+//lazy 코드블록을 이용한 지연 초기화
+//사용할 때 값을 초기화한다는 의미 O
+//나중에 프로퍼티의 값을 셋팅한다는 의미 X
+//메모리 절약의 이점
+
+val a3 : String by lazy{
+    "테스트"
+}
+
+`````
+
 
 
 
