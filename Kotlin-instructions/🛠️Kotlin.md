@@ -34,6 +34,12 @@
 
 ## Constructor
 
+> 생성자 : 클래스를 통해 객체를 생성할 때 자동으로 수행될 코드를 작성하는 곳.
+>
+> 메서드와 비슷해 보이지만 반환타입이 없어 메서드라 부르지 않음.
+>
+> 클래스의 변수 값 초기화에 주로 이용됨.
+
 `````kotlin
 class TestClass constructor(val a1 :Int,var a2 :Int)
 
@@ -47,6 +53,14 @@ class TestClass2(val a1: Int, val a2:Int){
 }
 //보조 생성자를 통하는 경우 보조생성자가 먼저 호출되고 주생성자를 먼저 실행한뒤 보조생성자의 블록이 실행된다.
 `````
+
+### init 코드 블록 :
+
+> 객체 생성시 자동으로 처리되는 코드를 만들 수 있음.
+>
+> 기본 호출 순서 : main constructor -> init
+>
+> sub constructor를 통한 객체 생성시 호출 순서 : main constructor -> init -> subconstructor
 
 
 
@@ -74,7 +88,7 @@ class TestClass2(val a1: Int, val a2:Int){
 
 
 
-## LateInit
+## Lateinit
 
 > var로 선언된 변수의 초기화를 뒤로 미룰 수 있다.
 >
