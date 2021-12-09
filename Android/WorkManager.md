@@ -32,7 +32,19 @@ dependencies {
 
 
 
+## Schedule tasks with Workmanager
 
+> WorkMAnager makes it easy to schedule reliable, asynchronous tasks that are expected to run even if the app exits or the device restarts.
+>
+> ### Recommended replacement : 
+>
+> all previous Android background scheduling APIs, including {
+> `FirebaseJobDispatcher`,
+> `GcmNetworkManager`,
+> `Job Scheduler`
+> }
+
+​	
 
 
 
