@@ -153,6 +153,10 @@ class MyRepository @Inject constructor(){
 }
 `````
 
+> note : @ActivityRetainedScope will safe guard from configuration changes such screen orientation or language changes. However, @ActivityScoped` is negative.
+
+
+
 
 
 <h2>Hilt module</h2>
