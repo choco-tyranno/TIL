@@ -103,6 +103,8 @@ class TestClass2(val a1: Int, val a2:Int){
 >
 > val 변수는 lazy 코드블록 사용.
 
+`note :` lateinit var로 선언된 변수는 always not null. 내부적으로 Function<>이 내장되어있다. 
+
 `````kotlin
 class LateInitTest {
     var a1 : Int
