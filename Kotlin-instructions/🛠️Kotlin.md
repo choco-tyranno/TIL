@@ -139,9 +139,22 @@ val a3 : String by lazy{
 
 
 
+## Companion object
 
+> Support to declare static member.
+>
+> When java use kotlin class, static member is declared in Companion object. 
 
-
+`````kotlin
+//CompanionTest.kt
+class CompanionTest{
+    companion object {
+        @JvmStatic fun test1(){} //this annotation support the java access like java class access way. 
+        fun test2(){} // if java access this method, use this way :
+        //CompanionTest.Companion.test2()
+    }
+}
+`````
 
 
 
