@@ -149,9 +149,21 @@ val a3 : String by lazy{
 //CompanionTest.kt
 class CompanionTest{
     companion object {
-        @JvmStatic fun test1(){} //this annotation support the java access like java class access way. 
-        fun test2(){} // if java access this method, use this way :
-        //CompanionTest.Companion.test2()
+        @JvmStatic fun test1(){} //this annotation support the java can access like java class access way. how to access : CompanionTest.test1(); 
+        fun test2(){} // if you access this method in java code space,
+        //how to access : CompanionTest.Companion.test2();
+    }
+}
+`````
+
+`````java
+//Main.java
+class Main{
+    public void main(){
+        CompanionTest.test1(); //O
+        //CompanionTest.test2(); //X Error.
+        CompanionTest.Companion.test2(); //O
+        
     }
 }
 `````
