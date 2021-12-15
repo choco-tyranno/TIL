@@ -17,5 +17,43 @@
 
 + Setting ->Build,Execution, Deployment -> Build Tools -> Gradle
   `Set : ` Gradle JDK : version 11
+  
 +  Setting -> Other Settings -> Kotlin Compiler
   `set : ` Target JVM version : 11
+  
++ Gradle Scripts -> settings.gradle
+  `remove :` 'jcenter()' code line 
+
+  ```kotlin
+  dependencyResolutionManagement{
+      repositories {
+          jcenter() // Warning: this repository is going to shut down soon
+      }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
