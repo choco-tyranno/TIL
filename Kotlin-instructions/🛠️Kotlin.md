@@ -86,7 +86,22 @@ class TestClass2(val a1: Int, val a2:Int){
 >
 > internal : 같은 모듈인 경우에만 접근 가능.
 
+## Operator
 
+> + Arithmethic operator :
+>
+>   ```kotlin
+>   expression / Translated to
+>   a + b / a.plus(b)
+>   a - b / a.minus(b)
+>   a * b / a.times(b)
+>   a / b / a.div(b)
+>   a % b / a.rem(b), //a.mod(b) deprecated
+>   a..b / a.rangeTo(b)
+>   
+>   ```
+>
+>   
 
 ## Lateinit
 
