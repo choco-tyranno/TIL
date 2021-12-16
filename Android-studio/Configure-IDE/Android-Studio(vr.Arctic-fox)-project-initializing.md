@@ -1,5 +1,7 @@
 # Android Studio(vr.Arctic fox) - project initializing
 
+> To enable Java 11 feature, set `compileOptions` to the desired java version and set `compileSdkVersion` to 30 or above. 
+
 + Gradle Scripts -> build.gradle(Module)
 
   ```kotlin
@@ -17,10 +19,10 @@
 
 + Setting ->Build,Execution, Deployment -> Build Tools -> Gradle
   `Set : ` Gradle JDK : version 11
-  
-+  Setting -> Other Settings -> Kotlin Compiler
+
++ Setting -> Other Settings -> Kotlin Compiler
   `set : ` Target JVM version : 11
-  
+
 + Gradle Scripts -> settings.gradle
   `remove :` 'jcenter()' code line 
 
