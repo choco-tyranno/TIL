@@ -98,7 +98,7 @@ class TestClass2(val a1: Int, val a2:Int){
 >   a / b / a.div(b)
 >   a % b / a.rem(b), //a.mod(b) deprecated
 >   a..b / a.rangeTo(b)
->   
+>     
 >   ```
 >
 >   
@@ -151,6 +151,36 @@ val a3 : String by lazy{
 }
 
 `````
+
+
+
+## Overriding
+
+> + Overriding : 부모 클래스가 가진 메서드를 자식 클래스에서 재정의하는 개념.
+> + 부모가 가진 메서드의 이름, 매개변수 형태 모두 동일해야 한다.
+> + 모든 객체는 부모 클래스형 참조 변수에 담을 수 있다.
+> + 부모 클래스형 참조변수를 사용하면 부모 클래스에 정의되어 있는 멤버만 사용이 가능하다.
+> + 부모형 참조변수를 통해 Overriding된 자식 메서드를 호출할 수 있다.
+> + 자식 클래스 영역에서 super키워드를 통해 부모의 메서드를 호출할 수 있다. 
+
+```kotlin
+open class SuperClass{
+    open fun superMethod(){
+        println("superMethod입니다.")
+    }
+}
+class SubClass : SuperClass(){
+    override fun superMethod(){
+        println("subMethod입니다.")
+    }
+}
+
+fun main{
+    val obj1 : SuperClass = SubClass()
+    obj1.superMethod()
+    //output: subMethod입니다.
+}
+```
 
 
 
