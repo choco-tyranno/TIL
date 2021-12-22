@@ -98,7 +98,7 @@ class TestClass2(val a1: Int, val a2:Int){
 >   a / b / a.div(b)
 >   a % b / a.rem(b), //a.mod(b) deprecated
 >   a..b / a.rangeTo(b)
->     
+>       
 >   ```
 >
 >   
@@ -214,4 +214,49 @@ class Main{
 `````
 
 
+
+## Generics: in, out, where
+
+> ### `out` modifier :
+>
+> 코틀린에서 out 키워드는 컴파일러에  제네릭의 타입 'T' 가 단지 Source<T>의 멤버들로부터 리턴될뿐(produced)이라는 것(소비되지 않음)을 명확하게 알리는 설명자 키워드.
+
+```ko
+interface Source<out T> {
+    fun nextT(): T
+}
+
+fun demo(strs: Source<String>) {
+    val objects: Source<Any> = strs // This is OK, since T is an out-parameter
+    // ...
+}
+```
+
+>### `in` modifier :
+>
+>in 키워드는 단지 소비될뿐 생산되지 않는 것을 알린다.
+
+```kotlin
+interface Comparable<in T> {
+    operator fun compareTo(other: T): Int
+}
+
+fun demo(x: Comparable<Number>) {
+    x.compareTo(1.0) // 1.0 has type Double, which is a subtype of Number
+    // Thus, you can assign x to a variable of type Comparable<Double>
+    val y: Comparable<Double> = x // OK!
+}
+```
+
+> ### `where` clause :
+>
+> where절은 하나의 매개변수 'T' 가 둘 이상의 타입임을 나타낼때 사용.
+
+```kotl
+fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
+    where T : CharSequence,
+          T : Comparable<T> {
+    return list.filter { it > threshold }.map { it.toString() }
+}
+```
 
