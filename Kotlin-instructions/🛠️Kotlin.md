@@ -98,7 +98,7 @@ class TestClass2(val a1: Int, val a2:Int){
 >   a / b / a.div(b)
 >   a % b / a.rem(b), //a.mod(b) deprecated
 >   a..b / a.rangeTo(b)
->       
+>         
 >   ```
 >
 >   
@@ -258,5 +258,52 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
           T : Comparable<T> {
     return list.filter { it > threshold }.map { it.toString() }
 }
+```
+
+
+
+## 자주쓰는 Annotation
+
+> + @JvmName 
+> + @JvmStatic
+> + @JvmField
+> + @Throws
+> + @JvmOverloads
+
+```kotlin
+@JvmName("testListString")
+fun test(a : List<String>)
+
+@JvmName("testListInt")
+fun test(a : List<Int>)
+//Generic의 다이아몬드 연산자 내부 타입은 컴파일 타임에 지워지기 때문에 @JvmName으로 구분해준다.
+```
+
+```kotlin
+class Test {
+    companion object {
+        @JvmStatic var count : Int = 0 //Companion 객체 안이 아닌 직접 Test 클래스에 getter/setter를 만들어줌.
+    }
+}
+```
+
+```kotlin
+class Test {
+    @JvmField
+    var count = 0 // getter/setter 생성되지 않음.
+}
+```
+
+```kotlin
+void convertStringToInt(String str) throws NumberFormatException {...} // java
+
+@Throws(NumberFormatException::class)
+fun convertStringToInt(str: String){...} // kotlin
+```
+
+```kotlin
+class Test @JvmOverloads constructor(
+        var arg1: String, var arg2: Int = 0, var arg3: Int = 0)
+// java는 default argument가 없기 때문에 @JvmOverloads를 통해 생성자 오버로딩을 만들어준다.
 ```
 
