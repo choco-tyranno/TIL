@@ -117,7 +117,7 @@ buildscript {
 }
 
 
-//top level build.gradle
+//project level build.gradle
 `````
 
 `````ko
@@ -126,7 +126,7 @@ plugins {
 }
 
 
-//module's build.gradle
+//module level build.gradle
 `````
 
 <h3>2. Posting destination</h3>
