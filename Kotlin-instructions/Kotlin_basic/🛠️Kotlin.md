@@ -98,7 +98,7 @@ class TestClass2(val a1: Int, val a2:Int){
 >   a / b / a.div(b)
 >   a % b / a.rem(b), //a.mod(b) deprecated
 >   a..b / a.rangeTo(b)
->         
+>           
 >   ```
 >
 >   
