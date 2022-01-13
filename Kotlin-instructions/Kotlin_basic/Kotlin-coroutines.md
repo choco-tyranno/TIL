@@ -1,6 +1,7 @@
 # Kotlin coroutines
 
-> + 권장되는 백그라운드 스레드 관리 방법이며, 콜백들을 줄여줌.
+> + 동시성 프로그래밍.
+> + 백그라운드 스레드 관리에 권장되는 방법이며, 콜백들을 줄여줌.
 > + 코루틴은 코틀린 기능으로, 데이터베이스나 네트워크 엑세스와 같은 장기 작업에 대한 비동기 콜백들을 순차적인 코드로 변환한다.
 
 + `launch` 와 `runBlocking`으로 코드 실행 컨트롤.
@@ -239,10 +240,6 @@ override suspend fun doWork(): Result {
 ```
 
 + note : CoroutineWorker.doWork() 함수는 suspend 함수로, Woker 클래스와 달리 WorkManager config에 지정된 Executor에서 실행되지 않음. 대신 Dispatchers.Default를 사용함. 물론 withContext()를 통해 dispatcher switching 가능.
-
-
-
-
 
 
 
