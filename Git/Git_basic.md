@@ -19,7 +19,7 @@ $git commit
 
 
 
-## Commit
+## Commit 되돌리기 관련
 
 ***
 
@@ -80,6 +80,84 @@ $git revert -m <인덱스(1부터 시작)> <MERGE_COMMIT_ID>
 + 수정할 내용을 스테이징하고 `$git commit --amend` 명령어 실행.
 + 스테이지에 추가된 내용을 반영하면서 커밋 메시지도 변경가능.
   -> 커밋 메시지 변경할 때 사용.
+
+
+
+
+
+## Commit 없이 임시로 변경사항 저장
+
+***
+
+### Stash
+
+> 용도 :  예컨대 코드 수정 중 Hotfix 요청이 들어오는 경우 사용.
+>
+> 1. 변경사항 전체를 하드 리셋하거나,
+> 2. 저장소를 하나 더 클론받아오거나,
+> 3. 급하게 전체 커밋하거나
+> 4. 하는 수고를 덜 수 있음.
+
+```shell
+$git stash
+//$git stash save의 줄임 표현.
+//-m을 붙여 메시지를 붙일 수 있음.
+//붙이지 않으면 현재상태를 나타내는 메시지가 자동생성됨.
+//실행 후 워킹트리가 클린한 상태가 됨.
+//--index 옵션을 붙이면 스테이지 상태까지 같이 복원됨.
+
+$git stash list
+// stash된 리스트를 보여줌
+
+$git stash show <STASH_NAME>
+// stash된 내용 확인 가능.
+
+$git stash pop
+// stash 스텍에서 꺼내어 복구함(apply & drop).
+
+$git stash apply
+// stash 스텍에서 복사하여 적용하고, 꺼내어 없애진 않음.
+
+$git stash drop
+// stash 스텍에서 제거함
+
+$git stash branch <BRANCH_NAME>
+//새로운 브랜치를 만들고 pop을 실행.
+
+$git stash clear
+//모든 stash를 삭제(stack 비우기).
+
+$git stash show -p | git apply --reverse
+//가장 최근 apply된 stash를 다시 되돌림.
+//⚠️apply한 stash를 기반으로 되돌리기 때문에, drop이 실행된 경우에는 사용할 수 없음.
+
+$git stash show -p <STASH_NAME> | git apply --reverse
+//apply된 특정 stash를 되돌림.
+//⚠️apply한 stash를 기반으로 되돌리기 때문에, drop이 실행된 경우에는 사용할 수 없음.
+```
+
+> stash는 사용시 변경사항은 Stack자료 구조로 저장되기 때문에 LIFO를 따름.
+>
+> stash@{0}와 같이 인덱스가 있는 임시 이름이 생성됨. 
+
+```shell
+//기타
+
+$git checkout -f
+//현재 HEAD의 모든 변경사항을 되돌려야 할 때.
+
+$git stash -k
+//-k는 --keep-index의 줄임표현.
+//스테이징된 파일을 제외하고 stash함.
+
+$git stash -u
+//-u는 --include-untracked의 줄임표현.
+//untracked file들도 함께 stash해줌.
+```
+
+
+
+
 
 
 
