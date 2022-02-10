@@ -1,5 +1,78 @@
 # Git basic
 
+* 협업시 Commit이 누구의 것인지 기록하는 것은 매우 중요.
+
+  -> Git저장소에 커밋시 기록할 사용자 이름과 이메일 설정 요구됨.
+
+  
+
+### 로컬에서 기본 값으로 사용할 Git 사용자 이름과 이메일 설정(Global option)
+
+***
+
+* global option 사용 시, 현재 시스템의 모든 Git 작업에 대해 적용됨.
+
+```shell
+$git config --global user.name "<USER_NAME>"
+$git config --global user.email <USER_EMAIL>
+```
+
+```shell
+$cat ~/.gitconfig
+// ~/.gitconfig에 추가된 내용 확인.
+```
+
+
+
+### 저장소 별로 전용 사용자 설정하기
+
+***
+
+* global 옵션으로 설정한 정보보다 우선 적용됨.
+
+```shell
+$git config user.name "<USER_NAME>"
+$git config user.email <USER_EMAIL>
+```
+
+
+
+### 현재 저장소의 user name, email 확인하기
+
+***
+
+```shell
+$git config user.name
+$git config user.email
+```
+
+
+
+### Git 사용자 이름, 이메일 정보 삭제하기
+
+***
+
+```shell
+$git config <--global> --unset user.name
+$git config <--global> --unset user.email
+// 전역 설정 삭제 또는 개별 저장소 설정 삭제.
+```
+
+
+
+### 커밋 정보 출력
+
+```shell
+$git show <COMMIT_ID>
+// commit id, author info(user name, user email), commit date, message가 출력됨.
+```
+
+
+
+
+
+
+
 + Git bash의 기본 텍스트 편집기는 Vi 에디터.
 + Vi는 Command mode / Edit mode / Last line mode 세가지 모드가 있음.
 
